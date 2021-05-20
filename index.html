@@ -101,7 +101,48 @@
 
 
 
-            
+       <html>
+    <body>
+<h4 class="title">TokenPresale D-Day Count</h4>
+<div id="countDay">
+  <span class="day"></span>Days
+  <span class="time"></span>H
+  <span class="minute"></span>Min
+  <span class="second"></span>Sec
+  <span class="endday"></span>
+</div>
+<script type="text/javascript">
+  function CountDownTimer(dday) {
+  var countDownDate = new Date(dday).getTime();
+  var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    function showRemaining() {
+      if(days < 0) {
+        days = 0;
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+        clearInterval(x);
+      }
+      $('#countDay').find('.day').html(days);
+      $('#countDay').find('.time').html(hours);
+      $('#countDay').find('.minute').html(minutes);
+      $('#countDay').find('.second').html(seconds);
+    }
+     
+  showRemaining();
+  }, 1000);
+}
+CountDownTimer('2021/6/1 23:59:59');
+ </script>
+    </body></html>
+     
 
               
 
